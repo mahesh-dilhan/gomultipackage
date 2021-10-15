@@ -23,3 +23,13 @@ func HelloWorld(w http.ResponseWriter, r *http.Request) {
 	w.Header().Add("msgId", msgID)
 	w.Write([]byte("Hello, world"))
 }
+
+func inejctMsgID(next http.Handler) http.Handler {
+	return http.HandlerFunc(func(w http.ResponseWriter, r *http.Request) {
+		msgID := uuid.New().String()
+		ctx := context.WithValue(r.Context(), "msgId", msgID)
+		req := r.WithContext(ctx)
+		next.ServeHTTP(w, req)
+
+	})
+}
