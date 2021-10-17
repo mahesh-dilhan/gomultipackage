@@ -1,8 +1,0 @@
-syntax = "proto3";
-package rpc;
-service Main {
-  rpc RPC (stream Payload) returns (stream Payload) {}
-}
-message Payload {
-  bytes Data = 1;
-}
