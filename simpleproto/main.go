@@ -1,1 +1,1 @@
-package simpleproto
+package main
