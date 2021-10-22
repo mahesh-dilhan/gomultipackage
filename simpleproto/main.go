@@ -17,4 +17,15 @@ func main() {
 	if err != nil {
 		log.Fatal("marshaling error: ", err)
 	}
+	// printing out our raw protobuf object
+	fmt.Println(data)
+
+	// let's go the other way and unmarshal
+	// our byte array into an object we can modify
+	// and use
+	newElliot := &Person{}
+	err = proto.Unmarshal(data, newElliot)
+	if err != nil {
+		log.Fatal("unmarshaling error: ", err)
+	}
 }
