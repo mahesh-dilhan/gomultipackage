@@ -28,4 +28,8 @@ func main() {
 	if err != nil {
 		log.Fatal("unmarshaling error: ", err)
 	}
+	// print out our `newElliot` object
+	// for good measure
+	fmt.Println(newElliot.GetAge())
+	fmt.Println(newElliot.GetName())
 }
